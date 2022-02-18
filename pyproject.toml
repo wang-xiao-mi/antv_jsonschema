@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "antv_jsonschema"
+version = "0.0.1"
+description = ""
+authors = ["wanghongcheng <249768447@qq.com>"]
+license = "MIT"
+packages = [
+    { include = "antv_jsonschema" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[[tool.poetry.source]]
+name = "aliyun"
+url = "https://mirrors.aliyun.com/pypi/simple/"
+default = true
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
