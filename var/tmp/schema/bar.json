@@ -1,0 +1,393 @@
+{
+    "type": "object",
+    "properties": {
+        "width": {
+            "title": "width",
+            "default": "400",
+            "required": false,
+            "type": "number",
+            "description": "设置图表宽度。"
+        },
+        "height": {
+            "title": "height",
+            "default": "400",
+            "required": false,
+            "type": "number",
+            "description": "设置图表高度。"
+        },
+        "autoFit": {
+            "title": "autoFit",
+            "default": "true",
+            "required": false,
+            "type": "boolean",
+            "description": "图表是否自适应容器宽高。当 "
+        },
+        "padding": {
+            "title": "padding",
+            "default": null,
+            "required": false,
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "画布的 "
+        },
+        "appendPadding": {
+            "title": "appendPadding",
+            "default": null,
+            "required": false,
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "额外增加的 "
+        },
+        "renderer": {
+            "title": "renderer",
+            "default": "canvas",
+            "required": false,
+            "type": "string",
+            "description": "设置图表渲染方式为 "
+        },
+        "pixelRatio": {
+            "title": "pixelRatio",
+            "default": "window.devicePixelRatio",
+            "required": false,
+            "type": "number",
+            "description": "设置图表渲染的像素比，和底层的 devicePixelRatio 含义一致，一般不用设置，除非在页面有整体 scale 的情况下，可以自定义。"
+        },
+        "limitInPlot": {
+            "title": "limitInPlot",
+            "default": null,
+            "required": false,
+            "type": "boolean",
+            "description": "是否对超出坐标系范围的 Geometry 进行剪切。"
+        },
+        "supportCSSTransform": {
+            "title": "supportCSSTransform",
+            "default": null,
+            "required": false,
+            "type": "boolean",
+            "description": "支持 CSS transform，开启后图表的交互以及事件将在页面设置了 css transform 属性时生效，默认关闭。"
+        },
+        "locale": {
+            "title": "locale",
+            "default": null,
+            "required": false,
+            "type": "string",
+            "description": "指定具体语言，目前内置 'zh-CN' and 'en-US' 两个语言，你也可以使用 "
+        },
+        "data": {
+            "title": "data",
+            "default": null,
+            "required": true,
+            "type": "array",
+            "items": {
+                "type": "object"
+            },
+            "description": "设置图表数据源。数据源为对象集合，例如："
+        },
+        "xField": {
+            "title": "xField",
+            "default": null,
+            "required": true,
+            "type": "string",
+            "description": "图形在 x 方向对应的数据字段名，一般是横向的坐标轴对应的字段。比如：要看不同班级的人数情况，那么班级字段就是对应的 xField。"
+        },
+        "yField": {
+            "title": "yField",
+            "default": null,
+            "required": true,
+            "type": "string",
+            "description": "图形在 y 方向对应的数据字段名，一般是纵向的坐标轴对应的字段。比如：要看不同班级的人数情况，那么人数字段就是对应的 yField。"
+        },
+        "seriesField": {
+            "title": "seriesField",
+            "default": null,
+            "required": false,
+            "type": "string",
+            "description": "拆分字段，在分组条形图下同 groupField、colorField，在堆积条形图下同 stackField、colorField。"
+        },
+        "groupField": {
+            "title": "groupField",
+            "default": null,
+            "required": false,
+            "type": "string",
+            "description": "拆分字段，用于堆叠分组条形图，拆分优先级高于 seriesField，isGroup: true 时会根据 groupField 进行分组。"
+        },
+        "isGroup": {
+            "title": "isGroup",
+            "default": null,
+            "required": false,
+            "type": "boolean",
+            "description": "是否分组柱形图。"
+        },
+        "isStack": {
+            "title": "isStack",
+            "default": null,
+            "required": false,
+            "type": "boolean",
+            "description": "是否堆积条形图。"
+        },
+        "isRange": {
+            "title": "isRange",
+            "default": null,
+            "required": false,
+            "type": "boolean",
+            "description": "是否区间条形图。"
+        },
+        "isPercent": {
+            "title": "isPercent",
+            "default": null,
+            "required": false,
+            "type": "boolean",
+            "description": "是否百分比条形图，isPercent 为 true 时，isStack 也需要为 true。"
+        },
+        "meta": {
+            "title": "meta",
+            "default": null,
+            "required": false,
+            "type": "object",
+            "description": "全局化配置图表数据元信息，以字段为单位进行配置，来定义数据的类型和展示方式。在 meta 上的配置将同时影响所有组件的文本信息。"
+        },
+        "color": {
+            "title": "color",
+            "default": null,
+            "required": false,
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "指定点的颜色。如没有配置 colorField，指定一个单值即可。对 colorFiled 进行了配置的情况下，即可以指定一系列色值，也可以通过回调函数的方法根据对应数值进行设置。"
+        },
+        "pattern ✨": {
+            "title": "pattern ✨",
+            "default": null,
+            "required": false,
+            "type": "string",
+            "enum": [
+                "object"
+            ],
+            "description": "设置图形的贴图样式。"
+        },
+        "intervalPadding": {
+            "title": "intervalPadding",
+            "default": null,
+            "required": false,
+            "type": "number",
+            "description": "Specify the padding of interval, pixel value. Used in GroupColumn plot."
+        },
+        "dodgePadding": {
+            "title": "dodgePadding",
+            "default": null,
+            "required": false,
+            "type": "number",
+            "description": "Specify the padding of interval on the same group, pixel value. Used in GroupColumn plot."
+        },
+        "minBarWidth": {
+            "title": "minBarWidth",
+            "default": null,
+            "required": false,
+            "type": "number",
+            "description": "Specify the min width of bar, pixel value. Auto adapt by default."
+        },
+        "maxBarWidth": {
+            "title": "maxBarWidth",
+            "default": null,
+            "required": false,
+            "type": "number",
+            "description": "Specify the max width of bar, pixel value. Auto adapt by default."
+        },
+        "barStyle": {
+            "title": "barStyle",
+            "default": null,
+            "required": false,
+            "type": "string",
+            "enum": [],
+            "description": "Bar graphic Style."
+        },
+        "barBackground.style": {
+            "title": "barBackground.style",
+            "default": null,
+            "required": false,
+            "type": "StyleAttr",
+            "description": "Background style of bar graphic. "
+        },
+        "barWidthRatio": {
+            "title": "barWidthRatio",
+            "default": null,
+            "required": false,
+            "type": "number",
+            "description": "条形图宽度占比 [0-1]。"
+        },
+        "marginRatio": {
+            "title": "marginRatio",
+            "default": null,
+            "required": false,
+            "type": "number",
+            "description": "分组中柱子之间的间距 [0-1]，仅对分组条形图适用。"
+        },
+        "shape": {
+            "title": "shape",
+            "default": null,
+            "required": false,
+            "type": "string",
+            "description": "内置 shape 类型有："
+        },
+        "state": {
+            "title": "state",
+            "default": null,
+            "required": false,
+            "type": "object",
+            "description": "设置对应状态的样式，开放的状态有："
+        },
+        "axis": {
+            "title": "axis",
+            "default": "false",
+            "required": false,
+            "type": "boolean",
+            "description": "xAxis、yAxis 配置相同。"
+        },
+        "legend": {
+            "title": "legend",
+            "default": null,
+            "required": false,
+            "type": "string",
+            "description": "配置图例有两种方式\n第一种，传入 "
+        },
+        "label": {
+            "title": "label",
+            "default": null,
+            "required": false,
+            "type": "string",
+            "description": " 类型定义如下：（关于 "
+        },
+        "tooltip": {
+            "title": "tooltip",
+            "default": null,
+            "required": false,
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "指定 tooltip 中显示的字段，默认不同图表有不同的默认字段列表。配合 "
+        },
+        "annotations": {
+            "title": "annotations",
+            "default": null,
+            "required": false,
+            "type": "string",
+            "description": "详细配置见：各 Annotation 配置项说明。"
+        },
+        "缩略轴 slider": {
+            "title": "缩略轴 slider",
+            "default": null,
+            "required": false,
+            "type": "object",
+            "description": " 类型如下："
+        },
+        "滚动条 scrollbar": {
+            "title": "滚动条 scrollbar",
+            "default": null,
+            "required": false,
+            "type": "object",
+            "description": " 类型的请参考"
+        },
+        "转化标签 conversionTag": {
+            "title": "转化标签 conversionTag",
+            "default": null,
+            "required": false,
+            "type": "object",
+            "description": "适用于基础柱形图和基础条形图，转化率组件可以让用户关注到数据的变化比例。"
+        },
+        "联通对比区域": {
+            "title": "联通对比区域",
+            "default": null,
+            "required": false,
+            "type": "object",
+            "description": "适用于堆叠柱状图和堆叠条形图，联通区域组件通过绘制同一字段的联通区域提供视觉上的辅助识别，方便进行数据对比。（注意：不能和 "
+        },
+        "render()": {
+            "title": "render()",
+            "default": null,
+            "required": false,
+            "type": "string",
+            "description": "渲染图表。"
+        },
+        "update()": {
+            "title": "update()",
+            "default": null,
+            "required": false,
+            "type": "string",
+            "description": "更新图表配置项，配置覆盖，不会做差异比对。"
+        },
+        "内置主题": {
+            "title": "内置主题",
+            "default": null,
+            "required": false,
+            "type": "string",
+            "description": "目前默认的内置主要有两套："
+        },
+        "主题属性": {
+            "title": "主题属性",
+            "default": null,
+            "required": false,
+            "type": "string",
+            "description": "除了使用内置的 "
+        },
+        "主题属性（主题样式表）": {
+            "title": "主题属性（主题样式表）",
+            "default": null,
+            "required": false,
+            "type": "string",
+            "description": "除了以上介绍的主题属性之外，还可以传入主题样式表来自定义主题。如果你需要对全局主题进行配置的话，对样式风格进行切换，比如更改颜色、字体大小、边框粗细等"
+        },
+        "更新主题": {
+            "title": "更新主题",
+            "default": null,
+            "required": false,
+            "type": "string",
+            "description": "使用方式："
+        },
+        "自定义注册主题": {
+            "title": "自定义注册主题",
+            "default": null,
+            "required": false,
+            "type": "string",
+            "description": "另外，还可以通过 G2 提供了自定义主题机制来定义全新的主题结构，以允许用户切换、定义图表主题。前往 "
+        },
+        "brush": {
+            "title": "brush",
+            "default": null,
+            "required": false,
+            "type": "BrushCfg",
+            "description": "刷选交互配置。"
+        },
+        "添加交互": {
+            "title": "添加交互",
+            "default": null,
+            "required": false,
+            "type": "string",
+            "description": "通过 "
+        },
+        "配置交互": {
+            "title": "配置交互",
+            "default": null,
+            "required": false,
+            "type": "string",
+            "description": "通过 "
+        },
+        "移除交互": {
+            "title": "移除交互",
+            "default": null,
+            "required": false,
+            "type": "string",
+            "description": "使用示例："
+        }
+    },
+    "required": [
+        "data",
+        "xField",
+        "yField"
+    ]
+}
