@@ -8,6 +8,7 @@ import logging
 import datetime
 import os
 import logging.config
+from jinja2 import Environment, PackageLoader, FileSystemLoader
 import re
 
 LOG_DIR = 'var/log'
@@ -52,6 +53,17 @@ LOGGING = {
     }
 
 logging.config.dictConfig(LOGGING)
+
+env = Environment(loader=FileSystemLoader('antv_jsonschema/templates'))
+
+def var_hump_filter(value) -> str:
+    """变量转驼峰命名"""
+    pattern = re.compile('[-|_]\w')
+    def _map(m):
+        return m.group(0).replace('-', '').replace('_', '').capitalize()
+    return re.sub(pattern, _map, value)
+
+env.filters['var_hump_filter'] = var_hump_filter
 
 class AttrProps(BaseModel):
 
@@ -153,6 +165,10 @@ def make_line_config(filepath):
     with open(filepath, 'r') as f:
         html = etree.HTML(f.read())
 
+    # 表头
+    title = html.xpath('//div[contains(@class, "markdown-module--main--1VRvj")]/h1/text()')[0]
+    _jsonschema['title'] = title
+
     # 关于某个图表的配置项，这里以折线图为例
     content = html.xpath('//div[contains(@class, "markdown-module--content--1HSJ5")]/div')
     if not content:
@@ -176,20 +192,22 @@ def make_line_config(filepath):
         attr_props = _parase_props(item, name)
         if attr_props:
             _jsonschema['properties'][name] = attr_props
-        # break
 
     _jsonschema['required'] = [k for k, v in _jsonschema['properties'].items() if v['required'] is True]
 
     filename = filepath.split(os.sep)[-1].replace('.html', '')
+    _jsonschema['name'] = filename
     with open(f'var/tmp/schema/{filename}.json', 'w') as f:
         f.write(json.dumps(_jsonschema))
-    
 
-# make_line_config()
 
 if __name__ == '__main__':
     
     api_dir = 'antv_jsonschema/resources/g2plot.antv.vision/zh/docs/api/plots'
+
+    index_json_tpl = env.get_template('index.ts.tpl')
+
+    chart_names = []
     for root, _dir, _path in os.walk(api_dir):
         for filename in _path:
             if '.html' not in filename:
@@ -197,5 +215,11 @@ if __name__ == '__main__':
             filepath = os.path.join(root, filename)
             try:
                 make_line_config(filepath)
+                chart_names.append(filename.replace('.html', ''))
             except Exception as e:
                 pass
+
+    # jinja2渲染index.ts 
+    content = index_json_tpl.render(data=chart_names)
+    with open('var/tmp/schema/index.ts', 'w') as f:
+        f.write(content)
