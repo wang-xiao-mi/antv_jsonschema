@@ -33,4 +33,7 @@
 ```shell
 # 克隆文档
 wget -r -p -np -k -E https://g2plot.antv.vision/zh/docs/api/plots/line
+
+# 生成示例图表的jsonschema，输出到var/tmp目录
+python antv_jsonschema/scripts/make_examples_jsonschema.py
 ```
