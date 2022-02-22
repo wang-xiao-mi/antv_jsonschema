@@ -1,0 +1,17 @@
+antv-jsonschema==0.0.1
+attrs @ file:///Users/whc/Library/Caches/pypoetry/artifacts/49/dd/fc/3732a6dbd48baa737bf64c30270c9e121eade1669bb2347906d98d3c7c/attrs-21.4.0-py2.py3-none-any.whl
+certifi @ file:///Users/whc/Library/Caches/pypoetry/artifacts/05/40/ba/cb03d9500037c2a8ad03e0e255bd7f241c6bca723be2f65b2e128401c6/certifi-2021.10.8-py2.py3-none-any.whl
+charset-normalizer @ file:///Users/whc/Library/Caches/pypoetry/artifacts/bf/a7/d2/93575fdd046d0d1c0af56c88c49f0982d73c85cbf372b7e5c3677c267d/charset_normalizer-2.0.12-py3-none-any.whl
+idna @ file:///Users/whc/Library/Caches/pypoetry/artifacts/73/60/8e/64d434ddd1e6909ab2319169da484cfdd93dc817407e1859d14e5c0127/idna-3.3-py3-none-any.whl
+lxml @ file:///Users/whc/Library/Caches/pypoetry/artifacts/77/95/29/46145acba44abfe4cf8eb630c3e0980b61dadd5d8d37a29aa755fceed1/lxml-4.8.0-cp38-cp38-macosx_10_14_x86_64.whl
+more-itertools @ file:///Users/whc/Library/Caches/pypoetry/artifacts/96/02/bf/45000daf929a90f973e347a75e301ef42bc8a500786987b24150a83695/more_itertools-8.12.0-py3-none-any.whl
+packaging @ file:///Users/whc/Library/Caches/pypoetry/artifacts/e6/4c/2a/9774c19eda56a3105ff6062979282040d3805d9e874ef74a8060ca8111/packaging-21.3-py3-none-any.whl
+pluggy @ file:///Users/whc/Library/Caches/pypoetry/artifacts/e1/49/46/41ebbf7218e2558d8c71b24babcf6c466035a0f5c2f7579c334ef7ef97/pluggy-0.13.1-py2.py3-none-any.whl
+py @ file:///Users/whc/Library/Caches/pypoetry/artifacts/a7/bf/de/059223a5767f8fa18fdb4539ca5f3548a851cc484c1aa7296c18a46ce5/py-1.11.0-py2.py3-none-any.whl
+pydantic @ file:///Users/whc/Library/Caches/pypoetry/artifacts/3c/86/4c/b29fe120265d0d0720fbf9a7923796cfccf0b7cb74c113120c0e052707/pydantic-1.9.0-cp38-cp38-macosx_10_9_x86_64.whl
+pyparsing @ file:///Users/whc/Library/Caches/pypoetry/artifacts/e6/2a/33/578dfd6fe3caa93aaa89b8bf5da36ee73f317e4eed57f898c820e16cf2/pyparsing-3.0.7-py3-none-any.whl
+pytest @ file:///Users/whc/Library/Caches/pypoetry/artifacts/5f/b4/87/f345db0d67c014e59efb1c6f7a78b5caf880056b2584dd2cbcd5f7cba7/pytest-5.4.3-py3-none-any.whl
+requests @ file:///Users/whc/Library/Caches/pypoetry/artifacts/4f/b2/38/5968522c3b6a6e01367860ef5e59c6c1fb2a409b71ee2a859e094d3e61/requests-2.27.1-py2.py3-none-any.whl
+typing-extensions @ file:///Users/whc/Library/Caches/pypoetry/artifacts/68/77/bb/9244858a00a79fa30aecd7bbe1dad6e9d58f3c952345733b0e8601834e/typing_extensions-4.1.1-py3-none-any.whl
+urllib3 @ file:///Users/whc/Library/Caches/pypoetry/artifacts/cb/e3/a0/89dbcc1bc687f14534fc3a208f97d2bcb44d35b1a6bf33d022c6c1ce71/urllib3-1.26.8-py2.py3-none-any.whl
+wcwidth @ file:///Users/whc/Library/Caches/pypoetry/artifacts/b1/8c/aa/8b34d2168ccb7592ee6b534b5d64f54f1ac61da2074705cf3196bc2963/wcwidth-0.2.5-py2.py3-none-any.whl
